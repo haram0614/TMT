@@ -196,7 +196,7 @@ addLayer("a", {
     position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-        points: decimalZero,
+        points: new EN(0),
     }},
     tooltip() {
       return "Achievements"
@@ -205,7 +205,7 @@ addLayer("a", {
     nodeStyle() {return {
         "background": "radial-gradient(#FFFF00, #d5ad83)" ,
     }},
-    requires: decimalZero, // Can be a function that takes requirement increases into account
+    requires: new EN(0), // Can be a function that takes requirement increases into account
     resource: "Achievement Points",
     resourceSingular: "Achievement Point", 
     type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -346,7 +346,7 @@ addLayer("T", {
 		points: new EN(0),
     }},
     color: "#FFA500",
-    requires: new Decimal("e6160"), // Can be a function that takes requirement increases into account
+    requires: new EN("e6160"), // Can be a function that takes requirement increases into account
     resource: "Theory", // Name of prestige currency
     baseResource: "Qt", // Name of resource prestige is based on
     baseAmount() {return player.q.points}, // Get the current amount of baseResource
@@ -354,11 +354,11 @@ addLayer("T", {
     exponent: 0, // Prestige currency exponent
     branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(0)
+        mult = new EN(0)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-   	 exp = new Decimal(1)
+   	 exp = new EN(1)
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
