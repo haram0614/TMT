@@ -1,19 +1,19 @@
 let modInfo = {
-	name: "The Modding Tree",
+	name: "The Quantum Tree",
 	id: "mymod",
 	author: "",
-	pointsName: "points",
+	pointsName: "PL",
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new ExpantaNum (10), // Used for hard resets and new players
+	initialStartPoints: new ExpantaNum (0), // Used for hard resets and new players
 	
-	offlineLimit: 1,  // In hours
+	offlineLimit: 24,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "",
+	num: "0.2.1",
+	name: "Boost2 EN",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
