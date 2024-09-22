@@ -4,22 +4,22 @@ addLayer("q", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new EN(0),
+		points: new ExpantaNum(0),
     }},
     color: "#4BDC13",
-    requires: new EN(1), // Can be a function that takes requirement increases into account
+    requires: new ExpantaNum(1), // Can be a function that takes requirement increases into account
     resource: "Quantum", // Name of prestige currency
     baseResource: "PL", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new EN(1)
+        mult = new ExpantaNum(1)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        exp = new EN(1)
-	db = new EN(0)
+        exp = new ExpantaNum(1)
+	db = new ExpantaNum(0)
 	    if (hasUpgrade('q', 11)) exp = exp.add(1)
 	    if (hasUpgrade('q', 12)) exp = exp.add(1)
 	    if (hasUpgrade('q', 14)) exp = exp.add(1)
@@ -43,7 +43,7 @@ addLayer("q", {
             title: "1",
             description: "Qt expo +1",
             
-            cost: new EN(1.8e44),
+            cost: new ExpantaNum(1.8e44),
             effect(){
                 return true
             },
@@ -54,7 +54,7 @@ addLayer("q", {
 	12: {
             title: "2",
             description: "Qt,Qc expo +1",
-            cost: new EN(4e88),
+            cost: new ExpantaNum(4e88),
             unlocked() {
 		    return hasUpgrade("q", 11)
 	    },
@@ -68,7 +68,7 @@ addLayer("q", {
 	13: {
             title: "3",
             description: "quantum boost PL",
-            cost: new EN(8e132),
+            cost: new ExpantaNum(8e132),
             unlocked() {
 		    return hasUpgrade("q", 12)
 	    },
@@ -82,7 +82,7 @@ addLayer("q", {
 	14: {
             title: "4",
             description: "Qt expo +1",
-            cost: new EN(1e150),
+            cost: new ExpantaNum(1e150),
             unlocked() {
 		    return hasUpgrade("q", 13)
 	    },
@@ -96,7 +96,7 @@ addLayer("q", {
 	15: {
             title: "5",
             description: "Qt expo +8",
-            cost: new EN("1e400"),
+            cost: new ExpantaNum("1e400"),
             unlocked() {
 		    return hasUpgrade("q", 14)
 	    },
@@ -111,7 +111,7 @@ addLayer("q", {
             title: "6",
             description: "Qc expo +1",
             
-            cost: new EN(4e88),
+            cost: new ExpantaNum(4e88),
             effect(){
                 return hasUpgrade("q", 11)
             },
@@ -123,7 +123,7 @@ addLayer("q", {
             title: "7",
             description: "Qc expo +1",
             
-            cost: new EN(1e145),
+            cost: new ExpantaNum(1e145),
             effect(){
                 return hasUpgrade("q", 12)
             },
@@ -134,7 +134,7 @@ addLayer("q", {
 	23: {
             title: "8",
             description: "quantum boost PL after Upgrade3 cap",
-            cost: new EN("1e1290"),
+            cost: new ExpantaNum("1e1290"),
             unlocked() {
 		    return hasUpgrade("q", 15)
 	    },
@@ -148,7 +148,7 @@ addLayer("q", {
 	24: {
             title: "9",
             description: "quantum boost PL after Upgrade3 cap",
-            cost: new EN("1e4920"),
+            cost: new ExpantaNum("1e4920"),
             unlocked() {
 		    return hasUpgrade("q", 23)
 	    },
@@ -162,7 +162,7 @@ addLayer("q", {
 	25: {
             title: "10",
             description: "Unlock new layer",
-            cost: new EN("1e6161"),
+            cost: new ExpantaNum("1e6161"),
             unlocked() {
 		    return hasUpgrade("q", 24)
 	    },
@@ -176,7 +176,7 @@ addLayer("q", {
 	31: {
             title: "?1",
             description: "Qt boost theory",
-            cost: new EN("1e20000"),
+            cost: new ExpantaNum("1e20000"),
             unlocked() {
 		    return hasUpgrade("q", 24)
 	    },
@@ -196,7 +196,7 @@ addLayer("a", {
     position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-        points: new EN(0),
+        points: new ExpantaNum(0),
     }},
     tooltip() {
       return "Achievements"
@@ -205,7 +205,7 @@ addLayer("a", {
     nodeStyle() {return {
         "background": "radial-gradient(#FFFF00, #d5ad83)" ,
     }},
-    requires: new EN(0), // Can be a function that takes requirement increases into account
+    requires: new ExpantaNum(0), // Can be a function that takes requirement increases into account
     resource: "Achievement Points",
     resourceSingular: "Achievement Point", 
     type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -259,7 +259,7 @@ addLayer("Qc", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
-		points: new EN(0),
+		points: new ExpantaNum(0),
     }},
     color: "#4BDC13",
     requires: new EN(1), // Can be a function that takes requirement increases into account
@@ -270,11 +270,11 @@ addLayer("Qc", {
     exponent: 1, // Prestige currency exponent
     branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new EN(1)
+        mult = new ExpantaNum(1)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-   	 exp = new EN(1)
+   	 exp = new ExpantaNum(1)
 	    if (hasUpgrade('q', 21)) exp = exp.add(1)
 	    if (hasUpgrade('q', 22)) exp = exp.add(1)
         return exp
@@ -290,7 +290,7 @@ addLayer("Qc", {
             title: "11",
             description: "Qt expo *1.8",
             
-            cost: new EN(1e7),
+            cost: new ExpantaNum(1e7),
             effect(){
                 return true
             },
@@ -302,7 +302,7 @@ addLayer("Qc", {
             title: "12",
             description: "Qt expo *3.18",
             
-            cost: new EN(1e10),
+            cost: new ExpantaNum(1e10),
             effect(){
                 return true
             },
@@ -314,7 +314,7 @@ addLayer("Qc", {
             title: "13",
             description: "Qt expo *1.14",
             
-            cost: new EN(1e13),
+            cost: new ExpantaNum(1e13),
             effect(){
                 return true
             },
@@ -326,7 +326,7 @@ addLayer("Qc", {
             title: "14",
             description: "Qt expo *5.91",
             
-            cost: new EN(1e14),
+            cost: new ExpantaNum(1e14),
             effect(){
                 return true
             },
@@ -343,7 +343,7 @@ addLayer("T", {
     position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
-		points: new EN(0),
+		points: new ExpantaNum(0),
     }},
     color: "#FFA500",
     requires: new EN("e6160"), // Can be a function that takes requirement increases into account
@@ -354,11 +354,11 @@ addLayer("T", {
     exponent: 0, // Prestige currency exponent
     branches: ["q"],
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new EN(0)
+        mult = new ExpantaNum(0)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-   	 exp = new EN(1)
+   	 exp = new ExpantaNum(1)
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
