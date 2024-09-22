@@ -262,7 +262,7 @@ addLayer("Qc", {
 		points: new ExpantaNum(0),
     }},
     color: "#4BDC13",
-    requires: new EN(1), // Can be a function that takes requirement increases into account
+    requires: new ExpantaNum(1), // Can be a function that takes requirement increases into account
     resource: "Quantum Charge", // Name of prestige currency
     baseResource: "Qt expo", // Name of resource prestige is based on
     baseAmount() {return player.q.points.add(1).log10()}, // Get the current amount of baseResource
