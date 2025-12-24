@@ -5,7 +5,7 @@ let modInfo = {
 	pointsName: "Points",
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new ExpantaNum (0), // Used for hard resets and new players
+	initialStartPoints: new ExpantaNum (1), // Used for hard resets and new players
 	
 	offlineLimit: 24,  // In hours
 }
@@ -41,8 +41,10 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new EN("1")
-	    gain=gain.mul(player.points.max(1).mul(10)).min(1e10)
+	let gain = new ExpantaNum("1")
+	    gain=gain.mul(player.points.max(1).mul(10))
+	        if (gain.gte(1e10)) gain=gain.log10().div(10).pow(0.95).mul(10).pow_base(10)
+	        if (gain.gte("1.8e308")) gain=gain.log10().div(308).pow(0.9).mul(308).pow_base(10).min("ee6")
 	return gain
 }
 
@@ -56,7 +58,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.q.points.gte(new EN("e3e5"))
+	return player.points.gte("e20")
 }
 
 
