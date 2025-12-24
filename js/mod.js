@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The Quantum Tree",
 	id: "mymod",
 	author: "",
-	pointsName: "PL",
+	pointsName: "Points",
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new ExpantaNum (0), // Used for hard resets and new players
@@ -41,9 +41,8 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new EN("1.8e43")
-	if (hasUpgrade("q", 13)) gain = gain.mul(player.q.points.add(1000).div(1000).pow(0.05).min(1e15))
-	if (hasUpgrade("q", 23)) gain = gain.mul(player.q.points.add(1e308).log10().mul(2).add(0.25).pow(0.5).pow_base(1.165).mul(169000))
+	let gain = new EN("1")
+	    gain=gain.mul(player.points.add(1).mul(10)).min(1e10)
 	return gain
 }
 
