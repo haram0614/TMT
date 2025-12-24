@@ -42,7 +42,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new EN("1")
-	    gain=gain.mul(player.points.add(1).mul(10)).min(1e10)
+	    gain=gain.mul(player.points.max(1).mul(10)).min(1e10)
 	return gain
 }
 
